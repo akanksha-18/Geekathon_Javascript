@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Resume Helper</h1>
+
+    <!-- Resume Upload and Feedback Section -->
+    <section id="resumeSection">
+        <h2>Resume Upload and Feedback</h2>
+        <form id="resumeForm" enctype="multipart/form-data">
+            <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx">
+            <button type="button" onclick="uploadResume()">Upload Resume</button>
+        </form>
+        <div id="feedbackContainer">
+            <!-- Feedback will be displayed here -->
+        </div>
+    </section>
+
+    <!-- Job Suggestions Based on Resume Section -->
+    <section id="jobSuggestionsSection">
+        <h2>Job Suggestions Based on Resume</h2>
+        <div id="jobSuggestionsContainer">
+            <!-- Job suggestions will be displayed here -->
+        </div>
+    </section>
+
+    <!-- Project Recommendations Section -->
+    <section id="projectRecommendationsSection">
+        <h2>Project Recommendations</h2>
+        <div id="projectRecommendationsContainer">
+            <!-- Project recommendations will be displayed here -->
+        </div>
+    </section>
+
+       <!-- <script src="script.js"></script>   -->
+    <!-- <script src="script1.js"></script>  -->
+     <script src="script2.js"></script> 
+</body>
+</html>
