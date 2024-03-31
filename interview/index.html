@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assests/css/main.css">
+</head>
+<body>
+    <nav class="navbar bg-white">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-and-toggler">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="assests/images/curriculum-vitae.png" alt="" class="navbar-brand-icon">
+                        <span class="navbar-brand-text">build</span>
+                        <span>resume.</span>
+                    </a>
+                    <button type="button" class="navbar-toggler-btn">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </button>
+                </div>
+                <!-- <div class="navbar-buttons">
+                    <button id="loginBtn">Login/SignUp</button>
+                </div> -->
+                <div class="navbar-buttons ml-auto" id="navbarButtons">
+                    <!-- Welcome message will be added dynamically here -->
+                </div>
+                
+            </div>
+        </div>
+
+    </nav>
+    <header class="header bg-bright" id="header">
+        <div class="container">
+           <div class="header-content text-center"></div>
+           <h6 class="text-uppercase text-blue-dark fs-14 fw-6 ls-1">online resume builder</h6>
+           <h1 class="lg title">Only 2% of resumes make it pass the first round.Be in the top 2%</h1>
+           <p class = "text-dark fs-18">Use professional field-tested resume templates that follow that exact 'resume rules' employers look for. Easy to use and done within minutes - try now for free!</p>
+           <a href="#" onclick="redirectToResume()" class="btn btn-primary text-uppercase">Create my resume</a>
+          <img src = "assests/images/dublin-resume-templates.avif">
+        </div>
+
+    </header>
+
+    
+    <script>
+        // Add event listener to the Login/SignUp button
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            // Redirect to the login page
+            window.location.href = 'index.html';
+        });
+    </script>
+    <script>
+        function logout() {
+    // Clear the logged-in user from local storage
+    localStorage.removeItem('loggedInUser');
+    
+    // Redirect to the login page or perform any other necessary actions
+    window.location.href = 'index.html';
+}
+      
+        // JavaScript
+const navbarButtons = document.getElementById('navbarButtons');
+const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+if (loggedInUser) {
+    // If user is logged in, display welcome message with username and add logout button
+    const welcomeMessage = document.createElement('span');
+    welcomeMessage.innerText = `Welcome, ${loggedInUser.username}`;
+    navbarButtons.appendChild(welcomeMessage);
+
+    // Add logout button
+    const logoutButton = document.createElement('button');
+    logoutButton.innerText = 'Logout';
+    logoutButton.id = 'logoutBtn';
+    logoutButton.style.backgroundColor = '#e74c3c';
+    logoutButton.style.color = '#fff';
+    logoutButton.style.padding = '8px 16px';
+    logoutButton.style.border = 'none';
+    logoutButton.style.borderRadius = '4px';
+    logoutButton.style.cursor = 'pointer';
+    // logoutButton.classList.add('btn', 'btn-primary', 'text-uppercase');
+    logoutButton.addEventListener('click', logout);
+    navbarButtons.appendChild(logoutButton);
+} else {
+    // If user is not logged in, display login/signup button
+    const loginButton = document.createElement('button');
+    loginButton.innerText = 'Login/Signup';
+    loginButton.style.backgroundColor = '#3498db';
+    loginButton.style.color = '#fff';
+    loginButton.style.padding = '8px 16px';
+    loginButton.style.border = 'none';
+    loginButton.style.borderRadius = '4px';
+    loginButton.style.cursor = 'pointer';
+    // loginButton.classList.add('btn', 'btn-primary', 'text-uppercase');
+    loginButton.addEventListener('click', () => {
+        window.location.href = 'login.html';
+    });
+    navbarButtons.appendChild(loginButton);
+}
+
+    </script>
+    <script>
+    function redirectToResume() {
+        // Check if the user is logged in
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+        if (!loggedInUser) {
+            // If user is not logged in, display an alert message
+            alert('Please login or signup to create your resume.');
+        } else {
+            // If user is logged in, redirect to resume creation page
+            window.location.href = 'resume.html';
+        }
+    }
+</script>
+</body>
+</html>
