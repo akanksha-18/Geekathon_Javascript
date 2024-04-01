@@ -265,7 +265,7 @@ a{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 40px; /* Adjust the size as needed */
+    font-size: 40px; 
 }
 
 #prevBtn {
