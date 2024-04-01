@@ -222,6 +222,9 @@ a{
     margin-right: auto;
     margin-left: auto;
 }
+.header-content a {
+    margin-bottom: 20px; /* Adjust the space as needed */
+}
 /* .header-content img{
     max-width: 760px;
     border-top-right-radius: 8px;
