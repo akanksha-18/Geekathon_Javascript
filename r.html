@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css -->
-        <link rel="stylesheet" href="assests/css/main.css">
+        <link rel="stylesheet" href="interview/assests/css/main.css">
         <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
         <script type="importmap">
             {
@@ -96,6 +96,75 @@
 .markdown-container li {
     margin-left: 20px;
 }
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    #preview-sc {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .preview-cnt {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .preview-blk {
+        margin-bottom: 30px;
+    }
+
+    .preview-blk-title {
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .preview-blk-title h3 {
+        color: #007bff;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .preview-item-val {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .preview-cnt-l {
+        flex: 0 0 45%;
+    }
+
+    .preview-cnt-r {
+        flex: 0 0 45%;
+    }
+
+    .bg-green {
+        background-color: #28a745;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .bg-white {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
         </style>
     </head>
     <body>
@@ -379,7 +448,7 @@
             </div>
         </section>
 
-        <section id = "preview-sc" class = "print_area">
+        <!-- <section id = "preview-sc" class = "print_area">
             <div class = "container">
                 <div class = "preview-cnt">
                     <div class = "preview-cnt-l bg-green text-white">
@@ -420,7 +489,7 @@
                                 <h3>skills</h3>
                             </div>
                             <div class = "skills-items preview-blk-list" id = "skills_dsp">
-                                <!-- skills list here -->
+                                
                             </div>
                         </div>
                     </div>
@@ -456,7 +525,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
 
         <section class = "print-btn-sc">
             <div class = "container">
@@ -477,11 +547,25 @@
         <section class="project-recommendation-container">
             <div class="project-recommendations markdown-container"></div>
         </section>
-        <script src="assests/js/job.js" type="module"></script>
-        <script src="assests/js/project.js" type="module"></script>
+        <script src="interview/assests/js/job.js" type="module"></script>
+        <script src="interview/assests/js/project.js" type="module"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
         <script>
-            $(document).ready(function() {
+            // // Wait for the document to be ready
+            // $(document).ready(function() {
+            //     // Add click event listener to the submit button
+            //     $("#submitBtn").click(function() {
+            //         // Hide the form
+            //         $("#cv-form").hide();
+        
+            //         // Display the resume section
+            //         $("#preview-sc").show();
+            //         $(".print-btn-sc").show();
+            //     });
+            // });
+            // Wait for the document to be ready
+// Wait for the document to be ready
+$(document).ready(function() {
     // Add click event listener to the submit button
     $("#submitBtn").click(function() {
         // Hide the form
@@ -560,9 +644,9 @@
         <!-- jquery repeater cdn -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js" integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- custom js -->
-        <script src = "assests/js/script.js"></script>
+        <script src = "interview/assests/js/script.js"></script>
         <!-- app js -->
-        <script src="assests/js/app.js"></script>
+        <script src="interview/assests/js/app.js"></script>
 
        
     </body>
