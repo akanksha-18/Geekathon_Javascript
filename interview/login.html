@@ -20,8 +20,8 @@
                 <div class="navbar-and-toggler">
                     <a href="index.html" class="navbar-brand">
                         <img src="assests/images/curriculum-vitae.png" alt="" class="navbar-brand-icon">
-                        <span class="navbar-brand-text">build</span>
-                        <span>resume.</span>
+                        <span class="navbar-brand-text">Resume</span>
+                        <span>Builder.</span>
                     </a>
                     <button type="button" class="navbar-toggler-btn">
                         <div class="bar"></div>
@@ -36,14 +36,15 @@
             </div>
         </div>
     </nav>
-    <div class=" flex items-center justify-center h-screen">
+    <!-- <div class=" flex items-center justify-center h-screen">
         <div class="bg-white p-8 rounded shadow-md w-96">
             <div class="mb-4">
                 <button id="loginBtn" class="mr-2 px-4 py-2 bg-blue-500 text-white focus:outline-none">Login</button>
                 <button id="signupBtn" class="px-4 py-2 bg-gray-300 text-gray-700 focus:outline-none">Signup</button>
             </div>
     
-            <!-- Login Form -->
+            
+                //Login Form 
             <form id="loginForm" class="bg-gradient-to-r from-blue-200 to-green-200 p-8 rounded-lg shadow-lg">
                 <label for="loginUsername" class="block mb-2 text-sm text-gray-600" ><img src="Images/user-line.png" alt="Lock Icon" class="mr-2">
                     
@@ -57,23 +58,10 @@
                 <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" class="w-full px-3 py-2 border rounded mb-4">
                 
                 <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-full">Login</button>
-                <div class="flex justify-center gap-12 pt-20">
-                    <a class="text-gray-500 hover:cursor-pointer ">
-                        <img id="hackerRank_icon" src="Images/github-fill.png" alt="">
-                    </a>
-                    <a class="ml-3 text-gray-500 hover:cursor-pointer hover:opacity-70">
-                        <img src="Images/facebook-circle-fill.png" alt="">
-                    </a>
-                    <a class="ml-3 text-gray-500 hover:cursor-pointer hover:opacity-70">
-                        <img src="Images/linkedin-box-fill.png" alt="">
-                    </a>
-                    <a class="ml-3 text-gray-500 hover:cursor-pointer hover:opacity-70">
-                        <img src="Images/twitter-fill.png" alt="">
-                    </a>
-                </div>
+                
             </form>
     
-            <!-- Signup Form (Hidden by default) -->
+             //Signup Form (Hidden by default) 
             <form id="signupForm" class="hidden bg-gradient-to-r from-blue-200 to-green-200 p-8 rounded-lg shadow-lg">
     
                 <label for="signupUsername" class="block mb-2 text-sm text-gray-600">
@@ -101,7 +89,56 @@
                 
             </form>
         </div>
+    </div> -->
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-white p-8 rounded  shadow-md w-96">
+            <div class="mb-8">
+                <button id="loginBtn" class="px-6 py-3 bg-blue-600 text-white rounded-full focus:outline-none">Login</button>
+                <button id="signupBtn" class="px-6 py-3 bg-gray-400 text-gray-800 rounded-full ml-4 focus:outline-none">Signup</button>
+            </div>
+    
+            <!-- Login Form -->
+            <form id="loginForm" class="bg-gradient-to-r from-blue-200 to-green-200 p-8 rounded-lg shadow-lg">
+                <label for="loginUsername" class="block mb-4 text-sm text-gray-700">
+                    Username or Email
+                </label>
+                <input type="text" id="loginUsername" name="loginUsername" placeholder="Enter your username or email" class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-400">
+    
+                <label for="loginPassword" class="block mb-4 text-sm text-gray-700">
+                    Password
+                </label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-400">
+    
+                <button type="submit" class="w-full px-6 py-3 bg-blue-500 text-white rounded-full focus:outline-none">Login</button>
+            </form>
+    
+            <!-- Signup Form (Hidden by default) -->
+            <form id="signupForm" class="hidden bg-gradient-to-r from-blue-200 to-green-200 p-8 rounded-lg shadow-lg">
+                <label for="signupUsername" class="block mb-4 text-sm text-gray-700">
+                    First & Last Name
+                </label>
+                <input type="text" id="signupUsername" name="signupUsername" placeholder="Enter your full name" class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-400">
+    
+                <label for="signupEmail" class="block mb-4 text-sm text-gray-700">
+                    Email
+                </label>
+                <input type="email" id="signupEmail" name="signupEmail" placeholder="Enter your email" class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-400">
+    
+                <label for="signupPassword" class="block mb-4 text-sm text-gray-700">
+                    Password
+                </label>
+                <input type="password" id="signupPassword" name="signupPassword" placeholder="Enter your password" class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-400">
+    
+                <label for="confirmPassword" class="block mb-4 text-sm text-gray-700">
+                    Confirm Password
+                </label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" class="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-400">
+    
+                <button type="submit" class="w-full px-6 py-3 bg-green-500 text-white rounded-full focus:outline-none">Signup</button>
+            </form>
+        </div>
     </div>
+    
 
     <script>
 
