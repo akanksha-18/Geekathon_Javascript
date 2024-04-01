@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assests/css/main.css">
+    <link rel="stylesheet" href="interview/assests/css/main.css">
 </head>
 <style>
-    #carousel img {
+
+#carousel img {
     display: none;
 }
 
@@ -17,7 +18,6 @@
 .arrow {
     font-size: 32px; /* Adjust the size as needed */
 }
-   
     .navbar {
     background-color: #f8f9fa; /* Set the background color of the navbar */
     padding: 15px 0; /* Add padding to the navbar */
@@ -90,7 +90,7 @@
            <h1 class="lg title">Only 2% of resumes make it pass the first round.Be in the top 2%</h1>
            <p class = "text-dark fs-18">Use professional field-tested resume templates that follow that exact 'resume rules' employers look for. Easy to use and done within minutes - try now for free!</p>
            <a href="#" onclick="redirectToResume()" class="btn btn-primary text-uppercase">Create my resume</a>
-          <img src = "assests/images/dublin-resume-templates.avif">
+          <img src = " interview/assests/images/dublin-resume-templates.avif">
         </div>
         
 
@@ -109,14 +109,15 @@
             </div>
         </div>
     </div> -->
+
     <div class="section-one">
         <div class="container">
             <div class="section-one-content">
                 <div class="section-one-l">
                     <div id="carousel">
-                        <img src="assests/images/visual-0c7080adf17f1f207276f613447c924f667dab34b7ac415cd7ef653172defd0b.svg" class="active">
-                        <img src="assests/images/undraw_analysis_dq08.svg">
-                        <img src="assests/images/undraw_experience_design_re_dmqq.svg">
+                        <img src="interview/assests/images/visual-0c7080adf17f1f207276f613447c924f667dab34b7ac415cd7ef653172defd0b.svg" class="active">
+                        <img src="interview/assests/images/undraw_analysis_dq08.svg">
+                        <img src="interview/assests/images/undraw_experience_design_re_dmqq.svg">
                         <!-- Add more images as needed -->
                     </div>
                     <button id="prevBtn" class="arrow">&#10094;</button>
@@ -130,7 +131,6 @@
         </div>
     </div>
     
-
     <div class = "section-two bg-bright">
         <div class="container">
             <div class="section-two-content">
@@ -170,34 +170,28 @@
             </div>
         </div>
     </footer>
-    <script>
-
-
-        var currentImage = 0;
-        var images = document.querySelectorAll('#carousel img');
-        var totalImages = images.length;
-        
-        document.getElementById('nextBtn').addEventListener('click', function() {
-            images[currentImage].classList.remove('active');
-            currentImage = (currentImage + 1) % totalImages;
-            images[currentImage].classList.add('active');
-        });
-        
-        document.getElementById('prevBtn').addEventListener('click', function() {
-            images[currentImage].classList.remove('active');
-            currentImage = (currentImage - 1 + totalImages) % totalImages;
-            images[currentImage].classList.add('active');
-        });
-        
-                // Add event listener to the Login/SignUp button
-                document.getElementById('loginBtn').addEventListener('click', function() {
-                    // Redirect to the login page
-                    window.location.href = 'index.html';
-                });
-            </script>
+    
 
     
     <script>
+
+
+var currentImage = 0;
+var images = document.querySelectorAll('#carousel img');
+var totalImages = images.length;
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+    images[currentImage].classList.remove('active');
+    currentImage = (currentImage + 1) % totalImages;
+    images[currentImage].classList.add('active');
+});
+
+document.getElementById('prevBtn').addEventListener('click', function() {
+    images[currentImage].classList.remove('active');
+    currentImage = (currentImage - 1 + totalImages) % totalImages;
+    images[currentImage].classList.add('active');
+});
+
         // Add event listener to the Login/SignUp button
         document.getElementById('loginBtn').addEventListener('click', function() {
             // Redirect to the login page
