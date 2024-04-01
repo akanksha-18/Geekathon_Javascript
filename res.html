@@ -1,0 +1,313 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendation</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div class="msg-container">
+                <div class="user-input-div">
+                    <input type="text" placeholder="Enter skills" class="user-input">
+                    <button class="btn">Get Job Recommendations</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        document.querySelector(".btn").addEventListener("click", getJobRecommendations);
+
+        async function getJobRecommendations() {
+            const userInput = document.querySelector(".user-input").value;
+
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            const result = await model.generateContent(userInput);
+            const response = await result.response;
+            const text = await response.text();
+
+            const sections = text.split("\n\n");
+
+            const jobRecommendations = sections.join('\n'); // Adjust this based on the response structure
+
+            displayJobRecommendations(jobRecommendations);
+        }
+
+        function displayJobRecommendations(jobRecommendations) {
+            alert(jobRecommendations); // For demonstration, replace this with your logic to display recommendations
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendation</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div class="msg-container">
+                <div class="user-input-div">
+                    <input type="text" placeholder="Enter skills separated by commas" class="user-input">
+                    <button class="btn">Get Job Recommendations</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        document.querySelector(".btn").addEventListener("click", getJobRecommendations);
+
+        async function getJobRecommendations() {
+            const userInput = document.querySelector(".user-input").value;
+
+            const skills = userInput.split(',').map(skill => skill.trim());
+
+            const jobRecommendations = await generateJobRecommendations(skills);
+
+            displayJobRecommendations(jobRecommendations);
+        }
+
+        async function generateJobRecommendations(skills) {
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            const results = await Promise.all(skills.map(skill => model.generateContent(skill + " jobs")));
+            const jobRecommendations = results.flatMap(result => {
+                const response = result.response;
+                return response.text().split("\n\n");
+            });
+            return jobRecommendations;
+        }
+
+        function displayJobRecommendations(jobRecommendations) {
+            // Display the job recommendations to the user
+            alert(jobRecommendations.join('\n\n'));
+        }
+    </script>
+
+
+
+
+ <!-- <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+    
+            const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
+            const genAI = new GoogleGenerativeAI(API_KEY);
+    
+            document.querySelector(".btn").addEventListener("click", getJobRecommendations);
+    
+            async function getJobRecommendations() {
+                const userInput = document.querySelector(".user-input").value;
+    
+                const skills = userInput.split(',').map(skill => skill.trim());
+    
+                const jobRecommendations = await generateJobRecommendations(skills);
+    
+                displayJobRecommendations(jobRecommendations);
+            }
+    
+            async function generateJobRecommendations(skills) {
+                const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+                const results = await Promise.all(skills.map(skill => model.generateContent(skill + " jobs")));
+                const jobRecommendations = results.flatMap(result => {
+                    const response = result.response;
+                    return response.text().split("\n\n");
+                });
+                return jobRecommendations;
+            }
+    
+            function displayJobRecommendations(jobRecommendations) {
+                // Display the job recommendations to the user
+                alert(jobRecommendations.join('\n\n'));
+            }
+        </script> -->
+
+        <!-- <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+        
+            const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
+            const genAI = new GoogleGenerativeAI(API_KEY);
+        
+            // Add event listener to the "Job Recommendation" button
+            document.getElementById("jobRecommendationBtn").addEventListener("click", getJobRecommendations);
+        
+            async function getJobRecommendations() {
+                const skills = getSkills(); // Function to get skills from the input fields
+                const jobRecommendations = await generateJobRecommendations(skills);
+                displayJobRecommendations(jobRecommendations);
+            }
+        
+            async function generateJobRecommendations(skills) {
+                const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+                const results = await Promise.all(skills.map(skill => model.generateContent(skill + " jobs")));
+                const jobRecommendations = results.flatMap(result => {
+                    const response = result.response;
+                    return response.text().split("\n\n");
+                });
+                return jobRecommendations;
+            }
+        
+            function displayJobRecommendations(jobRecommendations) {
+                // Display the job recommendations to the user
+                alert(jobRecommendations.join('\n\n'));
+            }
+        
+            function getSkills() {
+                // Function to extract skills from the input fields
+                const skillsInputs = document.querySelectorAll(".skill");
+                const skills = [];
+                skillsInputs.forEach(input => {
+                    const skill = input.value.trim();
+                    if (skill) {
+                        skills.push(skill);
+                    }
+                });
+                return skills;
+            }
+        </script>
+        
+
+       
+       
+       
+        -->
+       
+       
+       
+       
+       
+       
+        <!-- <script>
+            document.addEventListener("DOMContentLoaded", function() {
+    // Find the button element
+    const jobRecommendationBtn = document.getElementById("jobRecommendationBtn");
+
+    // Add event listener to the button
+    jobRecommendationBtn.addEventListener("click", function() {
+        // Redirect to job.html
+        window.location.href = "job.html";
+    });
+});
+
+        </script>
+        
+         
+        
+        <script>
+             document.addEventListener("DOMContentLoaded", function() {
+        // Find the button element for project recommendation
+        const projectRecommendationBtn = document.getElementById("projectRecommendationBtn");
+
+        // Add event listener to the button
+        projectRecommendationBtn.addEventListener("click", function() {
+            // Extract skills data from the form
+            const skills = extractSkills();
+
+            // Store skills data in localStorage
+            localStorage.setItem("skills", JSON.stringify(skills));
+
+            // Redirect to job.html
+            window.location.href = "job.html";
+        });
+    });
+
+    // Function to extract skills from the form
+    function extractSkills() {
+        const skills = [];
+        const skillInputs = document.querySelectorAll('.skill');
+        skillInputs.forEach(input => {
+            skills.push(input.value);
+        });
+        return skills;
+    }
+        </script>
+        <script>
+            function getSkills() {
+    var skills = [];
+    // Retrieve skills from input fields and add them to the skills array
+    document.querySelectorAll('.skill').forEach(function(input) {
+        skills.push(input.value.trim());
+    });
+    return skills;
+}
+
+// Function to match user skills with job requirements and generate recommendations
+function generateJobRecommendations(userSkills) {
+    var jobDatabase = [
+        {
+            title: 'Software Engineer',
+            requiredSkills: ['JavaScript', 'React', 'Node.js', 'MongoDB']
+        },
+        {
+            title: 'Data Analyst',
+            requiredSkills: ['SQL', 'Python', 'Data Visualization']
+        },
+        // Add more job listings with required skills
+    ];
+
+    var recommendedJobs = [];
+
+    // Iterate through the job listings
+    jobDatabase.forEach(function(job) {
+        var matchingSkills = job.requiredSkills.filter(function(skill) {
+            return userSkills.includes(skill);
+        });
+        // If the user has at least one required skill for the job, add it to recommendedJobs
+        if (matchingSkills.length > 0) {
+            recommendedJobs.push(job.title);
+        }
+    });
+
+    return recommendedJobs;
+}
+
+// Function to display job recommendations
+function displayRecommendations(recommendedJobs) {
+    var recommendationList = document.getElementById('recommendationList');
+    recommendationList.innerHTML = ''; // Clear previous recommendations
+    recommendedJobs.forEach(function(job) {
+        var listItem = document.createElement('li');
+        listItem.textContent = job;
+        recommendationList.appendChild(listItem);
+    });
+}
+
+// Event listener for generating recommendations when user enters skills
+document.getElementById('generateRecommendationsBtn').addEventListener('click', function() {
+    var userSkills = getSkills();
+    var recommendedJobs = generateJobRecommendations(userSkills);
+    displayRecommendations(recommendedJobs);
+});
+        </script> -->
+</body>
+</html>
+

@@ -1,7 +1,7 @@
 
 async function getJobs() {
-	
-    const url = 'https://indeed-jobs-api.p.rapidapi.com/indeed-us/?offset=0&keyword=python&location=california';
+	const location="India";
+    const url = `https://indeed-jobs-api.p.rapidapi.com/indeed-us/?offset=0&keyword=python&location=${location}`;
 
     const options = {
         method: 'GET',

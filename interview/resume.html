@@ -8,6 +8,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css -->
         <link rel="stylesheet" href="assests/css/main.css">
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+        <script type="importmap">
+            {
+              "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+              }
+            }
+        </script>
+        <style>
+            .job-recommendation-container {
+                background-color: #f8f9fa;
+                border: 1px solid #ced4da;
+                border-radius: 5px;
+                padding: 20px;
+                margin-top: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        
+            .job-recommendations {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .job-recommendations li {
+                background-color: #fff;
+                border: 1px solid #ced4da;
+                border-radius: 5px;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+        </style>
     </head>
     <body>
         <nav class = "navbar bg-white">
@@ -378,6 +410,56 @@
         </section>
 
 
+        <section class="job-recommendation-container">
+            <div class="job-recommendations"></div>
+        </section>
+        
+        <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+        
+            const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
+            const genAI = new GoogleGenerativeAI(API_KEY);
+        
+            document.getElementById("jobRecommendationBtn").addEventListener("click", getJobRecommendations);
+        
+            async function getJobRecommendations() {
+                const skills = getSkills();
+                const jobRecommendations = await generateJobRecommendations(skills);
+                displayJobRecommendations(jobRecommendations);
+            }
+        
+            async function generateJobRecommendations(skills) {
+                const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+                const results = await Promise.all(skills.map(skill => model.generateContent(skill + " jobs")));
+                const jobRecommendations = results.flatMap(result => {
+                    const response = result.response;
+                    return response.text().split("\n\n");
+                });
+                return jobRecommendations;
+            }
+            function convertMarkdownToHtml(markdownText) {
+    const md = window.markdownit();
+    return md.render(markdownText);
+}
+        
+            function displayJobRecommendations(jobRecommendations) {
+                const recommendationsContainer = document.querySelector(".job-recommendations");
+                // recommendationsContainer.innerHTML = jobRecommendations.join("<br>");
+                recommendationsContainer.innerHTML = convertMarkdownToHtml(jobRecommendations.join("\n\n"));
+            }
+        
+            function getSkills() {
+                const skillsInputs = document.querySelectorAll(".skill");
+                const skills = [];
+                skillsInputs.forEach(input => {
+                    const skill = input.value.trim();
+                    if (skill) {
+                        skills.push(skill);
+                    }
+                });
+                return skills;
+            }
+        </script>
         
 
         <!-- jquery cdn -->
@@ -388,18 +470,7 @@
         <script src = "assests/js/script.js"></script>
         <!-- app js -->
         <script src="assests/js/app.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-    // Find the button element
-    const jobRecommendationBtn = document.getElementById("jobRecommendationBtn");
 
-    // Add event listener to the button
-    jobRecommendationBtn.addEventListener("click", function() {
-        // Redirect to job.html
-        window.location.href = "job.html";
-    });
-});
-
-        </script>
+       
     </body>
 </html>
