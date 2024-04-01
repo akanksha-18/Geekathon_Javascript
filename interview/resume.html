@@ -479,6 +479,11 @@
         </section>
         <script src="assests/js/job.js" type="module"></script>
         <script src="assests/js/project.js" type="module"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js" integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- custom js -->
+        <script src = "assests/js/script.js"></script>
+        <!-- app js -->
+        <script src="assests/js/app.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
         <script>
             $(document).ready(function() {
@@ -504,66 +509,6 @@
 });
 
         </script>
-        
-        <!-- <script type="module">
-            import { GoogleGenerativeAI } from "@google/generative-ai";
-        
-            const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
-            const genAI = new GoogleGenerativeAI(API_KEY);
-        
-            document.getElementById("jobRecommendationBtn").addEventListener("click", getJobRecommendations);
-        
-            async function getJobRecommendations() {
-                const skills = getSkills();
-                const jobRecommendations = await generateJobRecommendations(skills);
-                displayJobRecommendations(jobRecommendations);
-            }
-        
-            async function generateJobRecommendations(skills) {
-                const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-                const results = await Promise.all(skills.map(skill => model.generateContent(skill + " jobs")));
-                const jobRecommendations = results.flatMap(result => {
-                    const response = result.response;
-                    return response.text().split("\n\n");
-                });
-                return jobRecommendations;
-            }
-            function convertMarkdownToHtml(markdownText) {
-    const md = window.markdownit();
-    return md.render(markdownText);
-}
-        
-            function displayJobRecommendations(jobRecommendations) {
-                const recommendationsContainer = document.querySelector(".job-recommendations");
-                // recommendationsContainer.innerHTML = jobRecommendations.join("<br>");
-                recommendationsContainer.innerHTML = convertMarkdownToHtml(jobRecommendations.join("\n\n"));
-            }
-        
-            function getSkills() {
-                const skillsInputs = document.querySelectorAll(".skill");
-                const skills = [];
-                skillsInputs.forEach(input => {
-                    const skill = input.value.trim();
-                    if (skill) {
-                        skills.push(skill);
-                    }
-                });
-                return skills;
-            }
-        </script> -->
-
-       
-        
-
-        <!-- jquery cdn -->
-       
-        <!-- jquery repeater cdn -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.js" integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!-- custom js -->
-        <script src = "assests/js/script.js"></script>
-        <!-- app js -->
-        <script src="assests/js/app.js"></script>
-
        
     </body>
 </html>
