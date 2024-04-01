@@ -5,10 +5,16 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 
 document.getElementById("projectRecommendationBtn").addEventListener("click", getProjectRecommendations);
 
+
 async function getProjectRecommendations() {
+    clearProjectRecommendations();
     const skills = getSkills();
     const projectRecommendations = await generateProjectRecommendations(skills);
     displayProjectRecommendations(projectRecommendations);
+}
+function clearProjectRecommendations() {
+    const recommendationsContainer = document.querySelector(".project-recommendations");
+    recommendationsContainer.innerHTML = ""; // Clear project recommendations
 }
 
 async function generateProjectRecommendations(skills) {

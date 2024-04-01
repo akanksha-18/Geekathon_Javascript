@@ -463,7 +463,7 @@
                 <button type = "button" class = "print-btn btn btn-primary" onclick="printCV()">Print CV</button>
                 <button type="button" id="previousBtn" class="btn btn-primary">Previous</button>
                 <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
-                <button id="jobRecommendationBtn" type="button" class="print-btn btn btn-primary">Job Recommendation</button>
+                <button id="jobRecommendationBtn" type="button" class="print-btn btn btn-primary" >Job Recommendation</button>
                 <button id="projectRecommendationBtn"  type = "button" class = "print-btn btn btn-primary" >Project Recommendation</button>
             </div>
         </section>
@@ -484,11 +484,12 @@
          <script src="assests/js/job.js" type="module"></script>
         <script src="assests/js/project.js" type="module"></script>
         <script src="assests/js/app.js"></script>
+        
         <script>
             $(document).ready(function() {
-    // Add click event listener to the submit button
+
     $("#submitBtn").click(function() {
-        // Hide the form
+       
         $("#cv-form").hide();
 
         // Display the resume section

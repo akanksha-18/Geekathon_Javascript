@@ -1,13 +1,18 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your actual API key
             const genAI = new GoogleGenerativeAI(API_KEY);
-        
             document.getElementById("jobRecommendationBtn").addEventListener("click", getJobRecommendations);
+
         
             async function getJobRecommendations() {
+                clearJobRecommendations();
                 const skills = getSkills();
                 const jobRecommendations = await generateJobRecommendations(skills);
                 displayJobRecommendations(jobRecommendations);
+            }
+            function clearJobRecommendations() {
+                const recommendationsContainer = document.querySelector(".job-recommendations");
+                recommendationsContainer.innerHTML = ""; // Clear job recommendations
             }
             async function generateJobRecommendations(skills) {
                 showSpinner();
