@@ -59,6 +59,26 @@
     margin-left: 10px; /* Add space between buttons */
     /* Add any additional styling for buttons as needed */
 }
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+
+.marquee-images {
+    display: flex; /* Display images in a flex container */
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-images img {
+    margin-right: 20px; /* Adjust the spacing between images */
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
 </style>
 <body>
     <nav class="navbar bg-white">
@@ -83,7 +103,7 @@
         </div>
     </nav>
     
-    <header class="header bg-bright" id="header">
+    <!-- <header class="header bg-bright" id="header">
         <div class="container">
            <div class="header-content text-center"></div>
            <h6 class="text-uppercase text-blue-dark fs-14 fw-6 ls-1">online resume builder</h6>
@@ -94,7 +114,29 @@
         </div>
         
 
+    </header> -->
+
+    <header class="header bg-bright" id="header">
+        <div class="container">
+            <div class="header-content text-center">
+                <h6 class="text-uppercase text-blue-dark fs-14 fw-6 ls-1">online resume builder</h6>
+                <h1 class="lg title">Only 2% of resumes make it past the first round. Be in the top 2%</h1>
+                <p class="text-dark fs-18">Use professional field-tested resume templates that follow the exact 'resume rules' employers look for. Easy to use and done within minutes - try now for free!</p>
+                <a href="#" onclick="redirectToResume()" class="btn btn-primary text-uppercase">Create my resume</a>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-images">
+                    <img src="interview/assests/images/1.png">
+                    <img src="interview/assests/images/2.png">
+                    <img src="interview/assests/images/3.png">
+                    <img src="interview/assests/images/4.png">
+                    <img src="interview/assests/images/5.png">
+                    <img src="interview/assests/images/6.png">
+                </div>
+            </div>
+        </div>
     </header>
+    
     <!-- <div class="section-one">
         <div class="container">
             <div class = "section-one-content">
