@@ -243,6 +243,39 @@ a{
     text-align: center;
 }
 /* section one */
+
+
+.section-one-l {
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+#carousel img {
+    display: none;
+}
+
+#carousel img.active {
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px; /* Adjust the size as needed */
+}
+
+#prevBtn {
+    left: -40px; /* Adjust the distance from the left edge of the image */
+}
+
+#nextBtn {
+    right: -20px; /* Adjust the distance from the right edge of the image */
+}
+
 .section-one{
     padding: 64px 0;
     min-height: 80vh;
