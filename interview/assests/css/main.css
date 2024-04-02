@@ -146,7 +146,7 @@ a{
 }
 
 .btn-primary{
-    background-color: var(--clr-blue);
+    background-color: #141414;
     color: var(--clr-white);
     border: 1px solid var(--clr-blue);
     transition: var(--transition);
@@ -181,8 +181,11 @@ a{
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+    background-color: #fbfbe0;
 }
-
+nav .bg-white{
+    background-color:#dcdcdc ;
+}
 .navbar .container{
     width: 100%;
 }
@@ -225,6 +228,26 @@ a{
 .header-content a {
     margin-bottom: 20px; /* Adjust the space as needed */
 }
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h1.title {
+    opacity: 0;
+    animation:  fadeInUp 3s ease infinite alternate;;
+  }
+  
+  .glow-effect {
+    color: black;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Change the values for more or less intensity */
+  }
 /* .header-content img{
     max-width: 760px;
     border-top-right-radius: 8px;
@@ -241,14 +264,16 @@ a{
     margin-bottom: 2.6rem;
     line-height: 2;
 }
-
+.bg-bright{
+    background-color:#d3d3d3;
+}
 .header .container{
     text-align: center;
 }
 .marquee-container {
     overflow: hidden;
     white-space: nowrap;
-    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 .marquee-images {
@@ -303,6 +328,7 @@ a{
     min-height: 80vh;
     display: flex;
     align-items: center;
+    background-color: #fbfbe0;
 }
 .section-one-l img{
     max-width: 545px;
