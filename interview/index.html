@@ -268,7 +268,24 @@ if (loggedInUser) {
 } else {
     const loginButton = document.createElement('button');
     loginButton.innerText = 'Login/Signup';
-    loginButton.style.backgroundColor = '#555555';
+    loginButton.style.background = 'linear-gradient(to right, #085078 0%, #85D8CE 51%, #085078 100%)';
+loginButton.style.backgroundColor = '#555555'; 
+loginButton.style.fontWeight = '500';
+
+loginButton.addEventListener('mouseover', function() {
+    loginButton.style.backgroundPosition = 'right center';
+    loginButton.style.color = '#fff';
+    loginButton.style.textDecoration = 'none';
+});
+
+loginButton.addEventListener('mouseout', function() {
+    // Reset styles on mouseout if needed
+    loginButton.style.backgroundPosition = 'initial';
+    loginButton.style.color = 'initial';
+    loginButton.style.textDecoration = 'initial';
+});
+
+    // loginButton.style.backgroundColor = '#555555';
     loginButton.style.color = '#fff';
     loginButton.style.padding = '8px 16px';
     loginButton.style.border = 'none';
