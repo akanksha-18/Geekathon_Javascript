@@ -15,49 +15,48 @@
     display: block;
 }
 .arrow {
-    font-size: 32px; /* Adjust the size as needed */
+    font-size: 32px; 
 }
    
     .navbar {
-    background-color: #f8f9fa; /* Set the background color of the navbar */
-    padding: 15px 0; /* Add padding to the navbar */
+    background-color: #f8f9fa; 
+    padding: 15px 0; 
 }
 
 .navbar-content {
     display: flex;
-    justify-content: space-between; /* Align content to the start and end of the navbar */
-    align-items: center; /* Center items vertically within the navbar */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .navbar-and-toggler {
     display: flex;
-    align-items: center; /* Center items vertically within the navbar */
+    align-items: center; 
 }
 
 .navbar-brand {
     display: flex;
-    align-items: center; /* Center items vertically within the navbar */
+    align-items: center; 
     text-decoration: none;
-    color: #343a40; /* Set the text color of the navbar brand */
+    color: #343a40; 
 }
 
 .navbar-brand-icon {
-    width: 30px; /* Adjust the width of the navbar brand icon */
-    margin-right: 10px; /* Add some space between the icon and the text */
+    width: 30px;
+    margin-right: 10px; 
 }
 
 .navbar-brand-text {
-    font-weight: bold; /* Set the font weight of the navbar brand text */
+    font-weight: bold; 
 }
 
 .navbar-buttons {
     display: flex;
-    align-items: center; /* Center items vertically within the navbar */
+    align-items: center; 
 }
 
 .navbar-buttons button {
-    margin-left: 10px; /* Add space between buttons */
-    /* Add any additional styling for buttons as needed */
+    margin-left: 10px; 
 }
 </style>
 <body>
@@ -138,7 +137,6 @@
                         <img src="assests/images/visual-0c7080adf17f1f207276f613447c924f667dab34b7ac415cd7ef653172defd0b.svg" class="active">
                         <img src="assests/images/undraw_analysis_dq08.svg">
                         <img src="assests/images/undraw_experience_design_re_dmqq.svg">
-                        <!-- Add more images as needed -->
                     </div>
                     <button id="prevBtn" class="arrow"><img src="assests/images/icons8-double-left.gif" alt=""></button>
                     
@@ -212,27 +210,21 @@
             images[currentImage].classList.add('active');
         });
         
-                // Add event listener to the Login/SignUp button
                 document.getElementById('loginBtn').addEventListener('click', function() {
-                    // Redirect to the login page
                     window.location.href = 'index.html';
                 });
             </script>
 
     
     <script>
-        // Add event listener to the Login/SignUp button
+      
         document.getElementById('loginBtn').addEventListener('click', function() {
-            // Redirect to the login page
             window.location.href = 'index.html';
         });
     </script>
     <script>
         function logout() {
-    // Clear the logged-in user from local storage
     localStorage.removeItem('loggedInUser');
-    
-    // Redirect to the login page or perform any other necessary actions
     window.location.href = 'index.html';
 }
       
@@ -241,12 +233,10 @@ const navbarButtons = document.getElementById('navbarButtons');
 const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
 if (loggedInUser) {
-    // If user is logged in, display welcome message with username and add logout button
+    
     const welcomeMessage = document.createElement('span');
     welcomeMessage.innerText = `Welcome, ${loggedInUser.username}`;
     navbarButtons.appendChild(welcomeMessage);
-
-    // Add logout button
     const logoutButton = document.createElement('button');
     logoutButton.innerText = 'Logout';
     logoutButton.id = 'logoutBtn';
@@ -256,11 +246,9 @@ if (loggedInUser) {
     logoutButton.style.border = 'none';
     logoutButton.style.borderRadius = '4px';
     logoutButton.style.cursor = 'pointer';
-    // logoutButton.classList.add('btn', 'btn-primary', 'text-uppercase');
     logoutButton.addEventListener('click', logout);
     navbarButtons.appendChild(logoutButton);
 } else {
-    // If user is not logged in, display login/signup button
     const loginButton = document.createElement('button');
     loginButton.innerText = 'Login/Signup';
     loginButton.style.backgroundColor = '#3498db';
@@ -269,7 +257,6 @@ if (loggedInUser) {
     loginButton.style.border = 'none';
     loginButton.style.borderRadius = '4px';
     loginButton.style.cursor = 'pointer';
-    // loginButton.classList.add('btn', 'btn-primary', 'text-uppercase');
     loginButton.addEventListener('click', () => {
         window.location.href = 'login.html';
     });
@@ -279,14 +266,14 @@ if (loggedInUser) {
     </script>
     <script>
     function redirectToResume() {
-        // Check if the user is logged in
+        
         const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
         if (!loggedInUser) {
-            // If user is not logged in, display an alert message
+            
             alert('Please login or signup to create your resume.');
         } else {
-            // If user is logged in, redirect to resume creation page
+           
             window.location.href = 'resume.html';
         }
     }
