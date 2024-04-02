@@ -20,7 +20,7 @@ function clearProjectRecommendations() {
 async function generateProjectRecommendations(skills) {
     showSpinner();
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const results = await Promise.all(skills.map(skill => model.generateContent(skill + " projects and github repos")));
+    const results = await Promise.all(skills.map(skill => model.generateContent(skill + " projects and github repos links")));
     const projectRecommendations = results.flatMap(result => {
         const response = result.response;
         return response.text().split("\n\n");

@@ -17,7 +17,7 @@ const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your 
             async function generateJobRecommendations(skills) {
                 showSpinner();
                 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-                const results = await Promise.all(skills.map(skill => model.generateContent(skill + " jobs and companies")));
+                const results = await Promise.all(skills.map(skill => model.generateContent(skill + "jobs with companies links ")));
                 const jobRecommendations = results.flatMap(result => {
                     const response = result.response;
                     return response.text().split("\n\n");
@@ -31,11 +31,43 @@ const API_KEY = "AIzaSyC1oRcJ7eAQaAO4kBqTJMt2w-ekoOCfj-I"; // Replace with your 
     return md.render(markdownText);
 }
         
+            // function displayJobRecommendations(jobRecommendations) {
+            //     const recommendationsContainer = document.querySelector(".job-recommendations");
+            //     // recommendationsContainer.innerHTML = jobRecommendations.join("<br>");
+            //     recommendationsContainer.innerHTML = convertMarkdownToHtml(jobRecommendations.join("\n\n"));
+            //     recommendationsContainer.innerHTML = convertedHTML;
+
+            //     // Select all anchor elements within the recommendations container
+            //     const links = recommendationsContainer.querySelectorAll("a");
+            
+            //     // Loop through each anchor element
+            //     links.forEach(link => {
+            //         // Check if the anchor element's href attribute starts with "http"
+            //         if (link.href && link.href.startsWith("http"))  {
+            //             // Set the target attribute to "_blank" to open the link in a new tab
+            //             link.target = "_blank";
+            //         }
+            //     });
+            // }
             function displayJobRecommendations(jobRecommendations) {
                 const recommendationsContainer = document.querySelector(".job-recommendations");
-                // recommendationsContainer.innerHTML = jobRecommendations.join("<br>");
                 recommendationsContainer.innerHTML = convertMarkdownToHtml(jobRecommendations.join("\n\n"));
+            
+                // Select all anchor elements within the recommendations container
+                const links = recommendationsContainer.querySelectorAll("a");
+            
+                // Loop through each anchor element
+                links.forEach(link => {
+                    // Check if the anchor element's href attribute starts with "http"
+                    if (link.href && link.href.startsWith("http"))  {
+                        // Set the target attribute to "_blank" to open the link in a new tab
+                        link.setAttribute("target", "_blank");
+                        // Make sure the link is active
+                        link.setAttribute("rel", "noopener noreferrer");
+                    }
+                });
             }
+            
         
             function getSkills() {
                 const skillsInputs = document.querySelectorAll(".skill");
