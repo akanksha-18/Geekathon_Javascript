@@ -12,9 +12,11 @@
         
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
+
 <body class="bg-gradient-to-r from-blue-200 to-green-200 h-screen">
     
-    <nav class="navbar bg-white">
+    <nav class="navbar bg-white" style=" background-color:#e2effd;">
         <div class="container">
             <div class="navbar-content">
                 <div class="navbar-and-toggler">
@@ -38,7 +40,7 @@
     </nav>
     
     <div class="flex items-center justify-center h-screen">
-        <div class="bg-white p-8 rounded  shadow-md w-96">
+        <div class="bg-white p-8 rounded  shadow-md w-96 ">
             <div class="mb-8">
                 <button id="loginBtn" class="px-6 py-3 bg-blue-600 text-white rounded-full focus:outline-none">Login</button>
                 <button id="signupBtn" class="px-6 py-3 bg-gray-400 text-gray-800 rounded-full ml-4 focus:outline-none">Signup</button>
@@ -140,6 +142,7 @@ signupForm.addEventListener('submit', function (event) {
     if (password !== confirmPassword) {
         alert('Password and Confirm Password do not match.');
         return;
+      
     }
 
     // Get existing users from localStorage or initialize an empty array
@@ -150,8 +153,9 @@ signupForm.addEventListener('submit', function (event) {
     if (isExistingUser) {
         alert('Username or Email already exists. Please use a different one.');
         return;
+        
     }
-
+   
     // Create a new user object
     const newUser = { username, email, password };
 
@@ -164,6 +168,7 @@ signupForm.addEventListener('submit', function (event) {
     // Redirect the user to the login page after successful registration
     window.location.href = 'login.html';
 });
+
 
 // Handle user login
 loginForm.addEventListener('submit', function (event) {
@@ -184,12 +189,14 @@ loginForm.addEventListener('submit', function (event) {
 
         // Show alert for successful login
         alert('Login successful');
+      
 
         // Redirect the user to index.html after successful login
         window.location.href = 'index.html';
     } else {
         // User is not found or password is incorrect
-        alert('Invalid username/email or password. Please try again.');
+         alert('Invalid username/email or password. Please try again.');
+       
     }
 });
 
